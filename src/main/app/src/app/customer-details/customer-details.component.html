@@ -1,0 +1,20 @@
+
+
+<br><div class="card" style="width: 18rem;" *ngIf="customer">
+    <div class="card-header">
+        <h2>Customer</h2>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Firstname: {{customer.firstname}} </li>
+      <li class="list-group-item">Lastname: {{customer.lastname}}</li>
+      <li class="list-group-item">Age: {{customer.age}}</li>
+      <li class="list-group-item list-group-item-danger" *ngIf="!customer.active">Active: {{customer.active}}</li>
+      <li class="list-group-item list-group-item-success" *ngIf="customer.active">Active: {{customer.active}}</li>
+    </ul>
+  <div class="card-body">
+    <span class="badge bg-warning"lass="button is-small btn-primary" *ngIf="!customer.active" (click)="isActive()">Inactive</span>
+    <span class="badge bg-success" *ngIf="customer.active" (click)="inActive()">Active</span>
+    <span class="badge bg-info" (click)="update()">Update</span>
+    <span class="badge bg-danger" (click)="deleteCustomer(customer.id)">Delete</span>
+  </div>
+</div>
